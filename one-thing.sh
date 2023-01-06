@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
 ONE_THING_URL="https://docs.google.com/spreadsheets/d/e/2PACX-1vS-3RlBB62GY1LcYzRIpaejoLP2eQCN4-Ly53lJb7lClWgkW2yPrRHYFbpUMOtQLCB-ZxRtEcZnlnat/pub?gid=0&single=true&output=csv"
-ONE_THING_GNOME_DIR="$HOME/.local/share/gnome-shell/extensions/one-thing@github.com"
-ONE_THING_GNOME_SCHEMA="org.gnome.shell.extensions.one-thing"
-ONE_THING_GNOME_KEY="thing-value"
+
+if [ -x "$(command -v gnome-session)" ]; then
+  ONE_THING_GNOME_DIR="$HOME/.local/share/gnome-shell/extensions/one-thing@github.com"
+  ONE_THING_GNOME_SCHEMA="org.gnome.shell.extensions.one-thing"
+  ONE_THING_GNOME_KEY="thing-value"
+  ONE_THING_GNOME_PID="$(pgrep gnome-session | head -1 | xargs)"
+  DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS "/proc/${ONE_THING_GNOME_PID}/environ" | tr -d '\0' | cut -d= -f2-)
+fi
 
 one_thing_set() {
   gsettings --schemadir "${ONE_THING_GNOME_DIR}/schemas" set "${ONE_THING_GNOME_SCHEMA}" "${ONE_THING_GNOME_KEY}" "$1"
