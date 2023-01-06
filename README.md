@@ -15,7 +15,7 @@ $ crontab -e
 ```
 
 ```crontab
-*/5 * * * * curl -sL https://raw.githubusercontent.com/francescobianco/one-thing/main/one-thing.sh | bash -
+2-59/5 * * * * curl -sL https://raw.githubusercontent.com/francescobianco/one-thing/main/one-thing.sh | bash -
 ```
 
 ## Resources
