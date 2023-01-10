@@ -15,7 +15,6 @@ $ crontab -e
 ```
 
 ```crontab
-HOME=/home/{CHANGEME}
 2-59/5 * * * * curl -sL https://lab.tp.it/one-thing/one-thing.sh | bash -
 ```
 
