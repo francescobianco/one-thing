@@ -11,11 +11,8 @@ if [ -x "$(command -v gnome-session)" ]; then
   export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS "/proc/${ONE_THING_GNOME_PID}/environ" | tr -d '\0' | cut -d= -f2-)
 fi
 
-echo "$ONE_THING_GNOME_PID" > /home/francesco/Develop/_/one-thing/one-thing.log
-
 one_thing_set() {
   gsettings --schemadir "${ONE_THING_GNOME_DIR}/schemas" set "${ONE_THING_GNOME_SCHEMA}" "${ONE_THING_GNOME_KEY}" "$1"
-  echo "EXIT: $?" >> /home/francesco/Develop/_/one-thing/one-thing.log
 }
 
 one_thing_get() {
@@ -33,5 +30,3 @@ if [ "${new_msg}" != "${old_msg}" ]; then
   one_thing_set "1️⃣"; sleep 1
   one_thing_set "${new_msg}"
 fi
-
-one_thing_set "ZIO12"
