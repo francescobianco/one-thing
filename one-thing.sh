@@ -18,7 +18,7 @@ one_thing_set() {
 one_thing_get() {
   local msg=$(gsettings --schemadir "${ONE_THING_GNOME_DIR}/schemas" get "${ONE_THING_GNOME_SCHEMA}" "${ONE_THING_GNOME_KEY}")
   [[ "${msg}" == \"*\" || "${msg}" == \'*\' ]] && msg="${msg:1:-1}"
-  echo "${msg}"
+  echo -e "${msg}"
 }
 
 new_msg="$(curl -sL "${ONE_THING_URL}")"
