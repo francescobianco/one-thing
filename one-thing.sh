@@ -24,6 +24,10 @@ one_thing_get() {
 new_msg="$(curl -sL "${ONE_THING_URL}")"
 old_msg="$(one_thing_get)"
 
+if [ "${new_msg}" = "Sincronizzazione di Calendar" ]; then
+  exit
+fi
+
 if [ "${new_msg}" != "${old_msg}" ]; then
   one_thing_set "3️⃣"; sleep 1
   one_thing_set "2️⃣"; sleep 1
