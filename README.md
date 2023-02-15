@@ -31,3 +31,4 @@ $ crontab -e
 - <https://github.com/dantehemerson/one-thing>
 - <https://extensions.gnome.org/extension/5072/one-thing/>
 - <https://github.com/one-thing-gnome/one-thing>
+- <https://www.linkedin.com/pulse/one-thing-una-soluzione-innovativa-per-aumentare-la-su-bianco/>
