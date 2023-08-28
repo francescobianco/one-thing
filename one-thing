@@ -20,12 +20,8 @@ one_thing_get() {
   echo -e "${msg}"
 }
 
-new_msg="$(curl -sL "${ONE_THING_URL}")"
+new_msg="$1"
 old_msg="$(one_thing_get)"
-
-if [ "${new_msg}" = "Sincronizzazione di Calendar" ]; then
-  exit
-fi
 
 if [ "${new_msg}" != "${old_msg}" ]; then
   one_thing_set "3️⃣"; sleep 1
