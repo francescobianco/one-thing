@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-ONE_THING_URL="https://docs.google.com/spreadsheets/d/e/2PACX-1vS-3RlBB62GY1LcYzRIpaejoLP2eQCN4-Ly53lJb7lClWgkW2yPrRHYFbpUMOtQLCB-ZxRtEcZnlnat/pub?gid=0&single=true&output=csv"
+set -e
 
 if [ -x "$(command -v gnome-session)" ]; then
   ONE_THING_GNOME_REAL_UID=$(id --real --user)
