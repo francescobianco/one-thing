@@ -1,19 +1,5 @@
 #!/usr/bin/env bash
 
-TODOIST_TASK=6622166072
-TODOIST_TOKEN=2c60c9f8ca3ee07a8cdff35d37a2d0dc94fc5b23
-
-curl "https://api.todoist.com/rest/v2/tasks/$TODOIST_TASK" \
-    -d '{"content": "Buy 🔥 3"}' \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $TODOIST_TOKEN"
-
-
-curl -s "https://api.todoist.com/rest/v2/tasks/$TODOIST_TASK" \
-    -H "Authorization: Bearer $TODOIST_TOKEN" | jq -r ".content"
-
-exit
-
 ONE_THING_URL="https://docs.google.com/spreadsheets/d/e/2PACX-1vS-3RlBB62GY1LcYzRIpaejoLP2eQCN4-Ly53lJb7lClWgkW2yPrRHYFbpUMOtQLCB-ZxRtEcZnlnat/pub?gid=0&single=true&output=csv"
 
 if [ -x "$(command -v gnome-session)" ]; then
